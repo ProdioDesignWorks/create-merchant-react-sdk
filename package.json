@@ -1,6 +1,6 @@
 {
   "name": "payment-processing-react-prodio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A react multi-step component for data collection via forms in a sequential manner.",
   "main": "./dist/main.js",
   "scripts": {
