@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Promise from 'promise';
+
 const axios = require('axios');
 
 export default class FormBuilder extends Component {
@@ -22,21 +23,18 @@ export default class FormBuilder extends Component {
     this.applyValidationFlagsToSteps();
   }
 
-  createMerchant(hostname,port,userId, data) {
+  createMerchant(hostname, port, userId, data) {
     return new Promise((resolve, reject) => {
-      if (hostname.indexOf('http') === -1 || hostname.indexOf('https') === -1){
-        hostname = 'https://'+hostname;
-      }
-      const url = hostname+':'+port+'/api/ezpayMerchants/createMerchant/'+userId
+      const url = `${hostname}:${port}/api/ezpayMerchants/createMerchant/${userId}`;
       try {
         axios.post(url, data)
-        .then(function (response) {
-          resolve(response);
-        })
-        .catch(function (error) {
-          reject(JSON.stringify(error));
-        });
-      }catch(e) {
+          .then((response) => {
+            resolve(JSON.stringify(response));
+          })
+          .catch((error) => {
+            reject(JSON.stringify(error));
+          });
+      } catch (e) {
         reject(JSON.stringify(e));
       }
     });

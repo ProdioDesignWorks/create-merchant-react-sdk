@@ -40,8 +40,8 @@ export default class Example extends Component {
 
   onClick() {
     const payload = {};
-    this.refs.steper.createMerchant('hostname','port','userId', payload).then((response) => {
-      alert(JSON.stringify(response));
+    this.refs.steper.createMerchant('http://domain', 'port', 'userId', payload).then((response) => {
+      console.log(JSON.parse(response));
     })
       .catch((error) => {
         console.error(error);
@@ -71,7 +71,10 @@ export default class Example extends Component {
             startAtStep={window.sessionStorage.getItem('step') ? parseFloat(window.sessionStorage.getItem('step')) : 0}
             onStepChange={(step) => window.sessionStorage.setItem('step', step)}
           />
-          <button onClick={this.onClick}>Click</button>
+        </div>
+        <div style={{ clear: "both" }}></div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <button onClick={this.onClick}>Call FormBuilder Function for Merchant creation</button>
         </div>
       </div>
     )

@@ -26,6 +26,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var axios = require('axios');
+
 var FormBuilder = function (_Component) {
   _inherits(FormBuilder, _Component);
 
@@ -50,10 +52,26 @@ var FormBuilder = function (_Component) {
     return _this;
   }
 
-  // extend the "steps" array with flags to indicate if they have been validated
-
-
   _createClass(FormBuilder, [{
+    key: 'createMerchant',
+    value: function createMerchant(hostname, port, userId, data) {
+      return new _promise2.default(function (resolve, reject) {
+        var url = hostname + ':' + port + '/api/ezpayMerchants/createMerchant/' + userId;
+        try {
+          axios.post(url, data).then(function (response) {
+            resolve(JSON.stringify(response));
+          }).catch(function (error) {
+            reject(JSON.stringify(error));
+          });
+        } catch (e) {
+          reject(JSON.stringify(e));
+        }
+      });
+    }
+
+    // extend the "steps" array with flags to indicate if they have been validated
+
+  }, {
     key: 'applyValidationFlagsToSteps',
     value: function applyValidationFlagsToSteps() {
       var _this2 = this;
