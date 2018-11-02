@@ -1,5 +1,5 @@
 {
-  "name": "payment-processing-react-sdk-prodio",
+  "name": "payment-processing-react-prodio",
   "version": "1.0.0",
   "description": "A react multi-step component for data collection via forms in a sequential manner.",
   "main": "./dist/main.js",
@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ProdioDesignWorks/payment-processing-react-sdk-prodio"
+    "url": "git+https://github.com/ProdioDesignWorks/payment-processing-react-prodio"
   },
   "keywords": [],
   "author": "@VatsyShah",
   "license": "",
   "bugs": {
-    "url": "https://github.com/ProdioDesignWorks/payment-processing-react-sdk-prodio/issues"
+    "url": "https://github.com/ProdioDesignWorks/payment-processing-react-prodio/issues"
   },
-  "homepage": "https://github.com/ProdioDesignWorks/payment-processing-react-sdk-prodio",
+  "homepage": "https://github.com/ProdioDesignWorks/payment-processing-react-prodio",
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
