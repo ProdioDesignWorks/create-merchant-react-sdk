@@ -1,4 +1,4 @@
-# payment-processing-react-sdk 
+# payment-processing-react-sdk-prodio
 
 is a multi-step component for sequential steps in payment processing.
 
@@ -7,11 +7,11 @@ Full example in `src/examples` directory.
 ### get started
 - run
 ```
-npm install --save payment-processing-react-sdk
+npm install --save payment-processing-react-sdk-prodio
 ```
 - require into your project via
 ```
-import PaymentProcessor from "payment-processing-react-sdk";
+import PaymentProcessor from "payment-processing-react-sdk-prodio";
 ```
 - define the list of all the components* you want to step through. The `name` indicates the title of the UI step and component is what loads.
 
