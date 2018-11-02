@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Promise from 'promise';
-import './css/main.css';
 
 const axios = require('axios');
 
