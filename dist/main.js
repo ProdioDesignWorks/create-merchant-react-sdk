@@ -56,7 +56,7 @@ var PaymentProcessor = function (_Component) {
     key: 'createMerchant',
     value: function createMerchant(hostname, userId, data) {
       return new _promise2.default(function (resolve, reject) {
-        var url = hostname + '/api/ezpayMerchants/createMerchant/' + userId;
+        var url = hostname + '/merchant/' + userId;
         try {
           axios.post(url, data).then(function (response) {
             resolve(JSON.stringify(response));
