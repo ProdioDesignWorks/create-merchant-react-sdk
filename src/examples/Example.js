@@ -8,7 +8,6 @@ import Step3 from './Step3';
 import Step4 from './Step4';
 import Step5 from './Step5';
 import Step6 from './Step6';
-
 import '../css/main.css';
 
 export default class Example extends Component {
@@ -40,9 +39,9 @@ export default class Example extends Component {
   }
 
   onClick() {
-    //this.child.current.getAlert();
-    this.refs.steper.createNotificationUser('1234567890').then((response) => {
-      console.log(response);
+    const payload = {};
+    this.refs.steper.createMerchant('hostname','port','userId', payload).then((response) => {
+      alert(JSON.stringify(response));
     })
       .catch((error) => {
         console.error(error);

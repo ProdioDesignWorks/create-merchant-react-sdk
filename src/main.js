@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Promise from 'promise';
+const axios = require('axios');
 
 export default class FormBuilder extends Component {
   constructor(props) {
@@ -21,17 +22,23 @@ export default class FormBuilder extends Component {
     this.applyValidationFlagsToSteps();
   }
 
-  createNotificationUser(userId) {
+  createMerchant(hostname,port,userId, data) {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        this.setState({
-          saving: true
+      if (hostname.indexOf('http') === -1 || hostname.indexOf('https') === -1){
+        hostname = 'https://'+hostname;
+      }
+      const url = hostname+':'+port+'/api/ezpayMerchants/createMerchant/'+userId
+      try {
+        axios.post(url, data)
+        .then(function (response) {
+          resolve(response);
+        })
+        .catch(function (error) {
+          reject(JSON.stringify(error));
         });
-        // call resolve() to indicate that server validation or other aync method was a success.
-        // ... only then will it move to the next step. reject() will indicate a fail
-        resolve('success');
-        // reject(); // or reject
-      }, 5000);
+      }catch(e) {
+        reject(JSON.stringify(e));
+      }
     });
   }
 
