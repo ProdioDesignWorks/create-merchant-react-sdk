@@ -18,6 +18,8 @@ var _promise = require('promise');
 
 var _promise2 = _interopRequireDefault(_promise);
 
+require('./css/main.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28,13 +30,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var axios = require('axios');
 
-var FormBuilder = function (_Component) {
-  _inherits(FormBuilder, _Component);
+var PaymentProcessor = function (_Component) {
+  _inherits(PaymentProcessor, _Component);
 
-  function FormBuilder(props) {
-    _classCallCheck(this, FormBuilder);
+  function PaymentProcessor(props) {
+    _classCallCheck(this, PaymentProcessor);
 
-    var _this = _possibleConstructorReturn(this, (FormBuilder.__proto__ || Object.getPrototypeOf(FormBuilder)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (PaymentProcessor.__proto__ || Object.getPrototypeOf(PaymentProcessor)).call(this, props));
 
     _this.state = {
       compState: _this.props.startAtStep,
@@ -52,11 +54,11 @@ var FormBuilder = function (_Component) {
     return _this;
   }
 
-  _createClass(FormBuilder, [{
+  _createClass(PaymentProcessor, [{
     key: 'createMerchant',
-    value: function createMerchant(hostname, port, userId, data) {
+    value: function createMerchant(hostname, userId, data) {
       return new _promise2.default(function (resolve, reject) {
-        var url = hostname + ':' + port + '/api/ezpayMerchants/createMerchant/' + userId;
+        var url = hostname + '/api/ezpayMerchants/createMerchant/' + userId;
         try {
           axios.post(url, data).then(function (response) {
             resolve(JSON.stringify(response));
@@ -470,13 +472,13 @@ var FormBuilder = function (_Component) {
     }
   }]);
 
-  return FormBuilder;
+  return PaymentProcessor;
 }(_react.Component);
 
-exports.default = FormBuilder;
+exports.default = PaymentProcessor;
 
 
-FormBuilder.defaultProps = {
+PaymentProcessor.defaultProps = {
   showSteps: true,
   showNavigation: true,
   stepsNavigation: true,
@@ -491,7 +493,7 @@ FormBuilder.defaultProps = {
   hocValidationAppliedTo: []
 };
 
-FormBuilder.propTypes = {
+PaymentProcessor.propTypes = {
   steps: _propTypes2.default.arrayOf(_propTypes2.default.shape({
     name: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object]).isRequired,
     component: _propTypes2.default.element.isRequired
