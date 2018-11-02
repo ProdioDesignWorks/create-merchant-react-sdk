@@ -25,7 +25,7 @@ export default class PaymentProcessor extends Component {
 
   createMerchant(hostname, userId, data) {
     return new Promise((resolve, reject) => {
-      const url = `${hostname}/api/ezpayMerchants/createMerchant/${userId}`;
+      const url = `${hostname}/merchant/${userId}`;
       try {
         axios.post(url, data)
           .then((response) => {

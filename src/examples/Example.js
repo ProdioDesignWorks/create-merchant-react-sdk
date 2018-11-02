@@ -40,7 +40,7 @@ export default class Example extends Component {
 
   onClick() {
     const payload = {};
-    this.refs.steper.createMerchant('http://domain', 'userId', payload).then((response) => {
+    this.refs.steper.createMerchant('https://47ha2doy85.execute-api.us-east-1.amazonaws.com/dev/ezpaymerchants', '7666881350', payload).then((response) => {
       console.log(JSON.parse(response));
     })
       .catch((error) => {
