@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import FormBuilder from '../main';
+import PaymentProcessor from '../main';
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
@@ -40,7 +40,7 @@ export default class Example extends Component {
 
   onClick() {
     const payload = {};
-    this.refs.steper.createMerchant('http://domain', 'port', 'userId', payload).then((response) => {
+    this.refs.steper.createMerchant('http://domain', 'userId', payload).then((response) => {
       console.log(JSON.parse(response));
     })
       .catch((error) => {
@@ -62,7 +62,7 @@ export default class Example extends Component {
     return (
       <div className='example'>
         <div className='step-progress'>
-          <FormBuilder
+          <PaymentProcessor
             ref="steper"
             steps={steps}
             preventEnterSubmission={true}
@@ -74,7 +74,7 @@ export default class Example extends Component {
         </div>
         <div style={{ clear: "both" }}></div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <button onClick={this.onClick}>Call FormBuilder Function for Merchant creation</button>
+          <button onClick={this.onClick}>Call PaymentProcessor Function for Merchant creation</button>
         </div>
       </div>
     )

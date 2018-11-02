@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Promise from 'promise';
+import './css/main.css';
 
 const axios = require('axios');
 
-export default class FormBuilder extends Component {
+export default class PaymentProcessor extends Component {
   constructor(props) {
     super(props);
 
@@ -23,9 +24,9 @@ export default class FormBuilder extends Component {
     this.applyValidationFlagsToSteps();
   }
 
-  createMerchant(hostname, port, userId, data) {
+  createMerchant(hostname, userId, data) {
     return new Promise((resolve, reject) => {
-      const url = `${hostname}:${port}/api/ezpayMerchants/createMerchant/${userId}`;
+      const url = `${hostname}/api/ezpayMerchants/createMerchant/${userId}`;
       try {
         axios.post(url, data)
           .then((response) => {
@@ -358,7 +359,7 @@ export default class FormBuilder extends Component {
   }
 }
 
-FormBuilder.defaultProps = {
+PaymentProcessor.defaultProps = {
   showSteps: true,
   showNavigation: true,
   stepsNavigation: true,
@@ -373,7 +374,7 @@ FormBuilder.defaultProps = {
   hocValidationAppliedTo: []
 };
 
-FormBuilder.propTypes = {
+PaymentProcessor.propTypes = {
   steps: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.oneOfType([
       PropTypes.string,

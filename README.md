@@ -1,17 +1,17 @@
-# create-merchant-react-sdk 
+# payment-processing-react-sdk 
 
-is a multi-step component for sequential data collection. It lets you give a group of react components as props and it will take the user through those components in steps. If it's a data-entry form it can trigger validation and only proceed if the data is valid.
+is a multi-step component for sequential steps in payment processing.
 
 Full example in `src/examples` directory.
 
 ### get started
 - run
 ```
-npm install --save create-merchant-react-sdk
+npm install --save payment-processing-react-sdk
 ```
 - require into your project via
 ```
-import FormBuilder from "create-merchant-react-sdk";
+import PaymentProcessor from "payment-processing-react-sdk";
 ```
 - define the list of all the components* you want to step through. The `name` indicates the title of the UI step and component is what loads.
 
@@ -28,7 +28,7 @@ const steps =
 - and now render it out somewhere in your app
 ```
     <div className='merchant-form'>
-        <FormBuilder steps={steps}/>
+        <PaymentProcessor steps={steps}/>
     </div>
 ```
 
@@ -82,7 +82,7 @@ onStepChange: (step) => console.log(step)
 example options usage:
 ```
 <div className='merchant-form'>
-    <FormBuilder steps={steps} stepsNavigation={false} prevBtnOnLastStep={false} startAtStep=2 />
+    <PaymentProcessor steps={steps} stepsNavigation={false} prevBtnOnLastStep={false} startAtStep=2 />
 </div>
 ```
 
